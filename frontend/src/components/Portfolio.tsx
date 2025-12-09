@@ -21,44 +21,48 @@ export default function Portfolio() {
     }, []);
 
     return (
-        <section id="portfolio" className="py-20 px-8 max-w-7xl mx-auto">
-            <div className="mb-16 flex justify-between items-end">
+        <section id="portfolio" className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto">
+            <div className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
                 <div>
-                    <div className="flex items-center gap-2 mb-4">
-                        <span className="w-2 h-2 bg-primary rounded-full"></span>
-                        <span className="font-medium">Portfolio</span>
+                    <div className="flex items-center gap-3 mb-4 md:mb-6">
+                        <span className="w-3 h-3 bg-accent rounded-full animate-pulse"></span>
+                        <span className="font-medium tracking-wide text-secondary uppercase text-sm">Portfolio</span>
                     </div>
-                    <h2 className="text-5xl font-bold">Latest Works</h2>
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground">Latest Works</h2>
                 </div>
-                <a href="#" className="text-primary font-medium hover:opacity-80">View All ↗</a>
+                <a href="#" className="text-foreground font-medium hover:text-accent transition-colors flex items-center gap-2 group text-sm md:text-base">
+                    View All <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                </a>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                 {projects.map((project) => (
                     <Link href={project.link || '#'} key={project.id} target="_blank" className="group cursor-pointer block">
-                        <div className="relative h-80 w-full mb-4 rounded-2xl overflow-hidden bg-gray-100">
+                        <div className="relative h-80 w-full mb-6 rounded-2xl overflow-hidden bg-tertiary shadow-sm group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                             {project.image ? (
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     unoptimized
                                 />
                             ) : (
-                                <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
+                                <div className="w-full h-full flex items-center justify-center text-secondary">No Image</div>
                             )}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center">↗</div>
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100 backdrop-blur-sm">
+                                <div className="bg-white text-black w-16 h-16 rounded-full flex items-center justify-center transform scale-50 group-hover:scale-100 transition-all duration-500 shadow-xl">
+                                    <span className="text-2xl">↗</span>
+                                </div>
                             </div>
                         </div>
-                        <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-                        <p className="text-secondary text-sm">{project.tags}</p>
+                        <h3 className="text-2xl font-bold mb-2 text-foreground group-hover:text-accent transition-colors">{project.title}</h3>
+                        <p className="text-secondary text-sm font-medium uppercase tracking-wide">{project.tags}</p>
                     </Link>
                 ))}
                 {projects.length === 0 && (
-                    <div className="col-span-full text-center py-20 bg-gray-50 rounded-2xl">
-                        <p className="text-secondary">No projects found. Add some in the backend!</p>
+                    <div className="col-span-full text-center py-32 bg-tertiary rounded-3xl border border-dashed border-secondary/20">
+                        <p className="text-secondary text-lg">No projects found. Add some in the backend!</p>
                     </div>
                 )}
             </div>
