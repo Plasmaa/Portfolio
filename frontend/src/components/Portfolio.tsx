@@ -21,8 +21,8 @@ export default function Portfolio() {
     }, []);
 
     return (
-        <section id="portfolio" className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto">
-            <div className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-end gap-6">
+        <section id="portfolio" className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+            <div className="mb-12 md:mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
                 <div>
                     <div className="flex items-center gap-3 mb-4 md:mb-6">
                         <span className="w-3 h-3 bg-accent rounded-full animate-pulse"></span>
@@ -44,7 +44,7 @@ export default function Portfolio() {
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
                                     unoptimized
                                 />
                             ) : (

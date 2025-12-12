@@ -17,7 +17,7 @@ const experiences = [
 
 export default function Experience() {
     return (
-        <section className="py-20 px-8 max-w-7xl mx-auto">
+        <section className="py-20 px-4 md:px-8 max-w-7xl mx-auto">
             <div className="mb-16">
                 <div className="flex items-center gap-2 mb-4">
                     <span className="w-2 h-2 bg-primary rounded-full"></span>

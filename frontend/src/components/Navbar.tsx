@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -8,9 +9,16 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300">
-            <div className="flex justify-between items-center py-6 px-8 max-w-7xl mx-auto">
+            <div className="flex justify-between items-center py-4 px-6 md:px-8 max-w-7xl mx-auto">
                 <div className="text-2xl font-bold tracking-tight z-50 relative">
-                    <Link href="/" className="hover:text-accent transition-colors" onClick={() => setIsOpen(false)}>Logo</Link>
+                    <Link href="/" className="hover:text-accent transition-colors block relative w-40 h-16" onClick={() => setIsOpen(false)}>
+                        <Image
+                            src="/images/logo_black_white.png"
+                            alt="Logo"
+                            fill
+                            className="object-contain object-left"
+                        />
+                    </Link>
                 </div>
 
                 {/* Desktop Menu */}
